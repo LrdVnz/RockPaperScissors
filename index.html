@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <script>
+
+function chooseRandom() {
+       return (Math.floor(Math.random()*3) + 1)
+    }
+
+let computerSelection = chooseRandom() ;
+
+function computerPlay() {
+   if (computerSelection ==1 ) {
+               return "Rock" 
+            } else if (computerSelection == 2) {
+                return "Paper" 
+            } else if (computerSelection == 3) { 
+                return "Scissors" 
+            }
+ }
+
+const caseComputer = computerPlay() ;
+
+ function computerCase() {
+    let upcase = caseComputer.toUpperCase() 
+    return upcase
+ }
+
+ function playerSelection() {
+    let playerPick = prompt("Choose Rock, Paper, or Scissors")
+    let pickPlayer = playerPick
+    let pickCase = pickPlayer.toUpperCase() ;
+    return pickCase
+ }
+
+  let computerPick = computerCase() ;
+  let playerPick = playerSelection() ;
+  let computerScore ;
+  let playerScore ;
+
+ function playRound() {
+      if(computerPick === playerPick) {
+         return "Tie! You both chose the same"
+      } else if (computerPick == "ROCK" && playerPick == "PAPER") {
+         let playerScore = 1 ;
+         return  "You won! Paper beats Rock" ;        
+      } else if (computerPick == "PAPER" && playerPick == "SCISSORS") {
+         let playerScore = 1 ;
+         return  "You won! Scissors beats Paper" ;          
+      } else if (computerPick == "SCISSORS" && playerPick == "ROCK") {
+         let playerScore = 1 ;
+         return  "You won! Rock beats Scissors" ;
+      } else if (playerPick == "ROCK" && computerPick == "PAPER") {
+         let playerScore = 1 ;
+         return "You lost! Paper beats Rock" ;         
+      } else if (playerPick == "SCISSORS" && computerPick == "ROCK") {
+         let computerScore = 1 ;
+         return  "You lost! Rock beats Paper" ;
+      } else if (playerPick == "PAPER" && computerPick == "SCISSORS") {
+         let computerScore = 1 ;
+         return "You lost! Scissors beats Paper" ;
+      }
+}
+
+console.log(playRound())
+
+  </script>
+</body>
+</html>

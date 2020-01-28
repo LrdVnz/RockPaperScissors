@@ -7,6 +7,11 @@
 
   <script>
 
+    let playerScore = 0 ;
+    let computerScore = 0 ; 
+
+function oneRound() {
+
 function chooseRandom() {
        return (Math.floor(Math.random()*3) + 1)
     }
@@ -39,34 +44,51 @@ const caseComputer = computerPlay() ;
 
   let computerPick = computerCase() ;
   let playerPick = playerSelection() ;
-  let computerScore ;
-  let playerScore ;
 
  function playRound() {
       if(computerPick === playerPick) {
+          computerScore = computerScore ; 
+          playerScore = playerScore ; 
          return "Tie! You both chose the same"
       } else if (computerPick == "ROCK" && playerPick == "PAPER") {
-         let playerScore = 1 ;
+          playerScore++ ;
+          computerScore = computerScore; 
          return  "You won! Paper beats Rock" ;        
       } else if (computerPick == "PAPER" && playerPick == "SCISSORS") {
-         let playerScore = 1 ;
+          playerScore++ ;
+          computerScore = computerScore ; 
          return  "You won! Scissors beats Paper" ;          
       } else if (computerPick == "SCISSORS" && playerPick == "ROCK") {
-         let playerScore = 1 ;
+          playerScore++ ;
+          computerScore = computerScore ;
          return  "You won! Rock beats Scissors" ;
       } else if (playerPick == "ROCK" && computerPick == "PAPER") {
-         let playerScore = 1 ;
+          computerScore++ ;
+          playerScore = playerScore ; 
          return "You lost! Paper beats Rock" ;         
       } else if (playerPick == "SCISSORS" && computerPick == "ROCK") {
-         let computerScore = 1 ;
+          computerScore++ ;
+          playerScore = playerScore ; 
          return  "You lost! Rock beats Paper" ;
       } else if (playerPick == "PAPER" && computerPick == "SCISSORS") {
-         let computerScore = 1 ;
+          computerScore++ ;
+          playerScore = playerScore ; 
          return "You lost! Scissors beats Paper" ;
       }
+   }
+   console.log(playRound()) ;
 }
 
-console.log(playRound())
+
+function game() {
+    oneRound() ; 
+    oneRound() ;
+    oneRound() ;
+    oneRound() ;
+    oneRound() ; 
+}
+
+game() ; 
 
   </script>
 </body>
